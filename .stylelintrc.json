@@ -1,0 +1,51 @@
+{
+  "extends": "stylelint-config-standard",
+  "customSyntax": "@stylelint/postcss-css-in-js",
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "property-no-unknown": null,
+    "declaration-property-value-allowed-list": {
+      "opacity": ["0", "1", "0.[0-9]+"]
+    },
+    "function-url-quotes": "always",
+    "value-keyword-case": null,
+    "shorthand-property-no-redundant-values": true,
+    "declaration-block-no-duplicate-properties": true,
+    "media-feature-range-notation": "prefix",
+    "declaration-property-value-no-unknown": [
+      true,
+      {
+        "ignoreProperties": {
+          "/color/": ["/props\\.theme\\.[a-zA-Z]+/i"]
+        }
+      }
+    ],
+    "order/properties-order": [
+      "margin",
+      "padding",
+      "position",
+      "z-index",
+      "top",
+      "right",
+      "bottom",
+      "left",
+      "height",
+      "width",
+      "border",
+      "display",
+      "flex",
+      "grid",
+      "align-items",
+      "justify-content",
+      "background",
+      "color",
+      "font",
+      "text-align",
+      "opacity",
+      "transform",
+      "transition"
+    ],
+
+    "order/properties-alphabetical-order": null
+  }
+}
