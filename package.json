@@ -16,12 +16,15 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.4",
-    "clsx": "^2.1.0",
+    "@radix-ui/react-slot": "^1.2.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.539.0",
     "next": "15.4.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.51.5",
-    "tailwind-merge": "^2.3.0",
+    "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8"
   },
@@ -46,12 +49,13 @@
     "globals": "^16.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.0",
-    "postcss": "^8.4.35",
+    "postcss": "^8.5.6",
+    "postcss-scss": "^4.0.9",
     "prettier": "^3.4.2",
     "stylelint": "^16.21.1",
     "stylelint-config-standard": "^38.0.0",
     "stylelint-order": "^7.0.0",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5",
     "typescript-eslint": "^8.37.0",
     "webpack": "^5.101.0"
@@ -62,7 +66,6 @@
     ],
     "*.{ts,tsx}": [
       "prettier --write",
-      "stylelint '**/*.{ts,tsx}'",
       "eslint --fix",
       "git add ."
     ],
