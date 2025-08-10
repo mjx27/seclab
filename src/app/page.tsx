@@ -1,4 +1,10 @@
+import { UserManagement } from '@/widgets/UserManagment';
+
 const Home = (): React.ReactNode => {
-  return <div />;
+  return (
+    <div>
+      <UserManagement />
+    </div>
+  );
 };
 export default Home;

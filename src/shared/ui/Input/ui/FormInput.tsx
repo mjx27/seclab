@@ -3,17 +3,14 @@ import { useFormContext } from 'react-hook-form';
 
 import { cn } from '@/shared/lib/utils';
 
-import type { InputProps } from './Input';
-import { Input } from './Input';
+import type { FormInputProps } from '../model/types';
 
-type FormInputProps = {
-  name: string;
-  label?: string;
-} & InputProps;
+import { Input } from './Input';
 
 export const FormInput = ({
   name,
   label,
+  type,
   className,
   ...props
 }: FormInputProps) => {
@@ -28,7 +25,9 @@ export const FormInput = ({
       <Input
         id={name}
         className={cn(className, errors[name] && 'border-red-500')}
-        {...register(name)}
+        {...register(name, {
+          valueAsNumber: type === 'number',
+        })}
         {...props}
       />
       {errors[name] && (

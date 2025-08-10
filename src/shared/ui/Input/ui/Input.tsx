@@ -15,6 +15,7 @@ export const Input = ({ className, type, innerRef, ...props }: InputProps) => {
         'placeholder:text-muted-foreground',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
         'disabled:cursor-not-allowed disabled:opacity-50',
+        'text-white',
         className
       )}
       ref={innerRef}
