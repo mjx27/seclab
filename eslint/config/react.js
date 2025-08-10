@@ -1,5 +1,6 @@
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 
 export default {
   settings: {
@@ -8,8 +9,9 @@ export default {
     },
   },
   plugins: {
-    react: reactPlugin,
-    'react-hooks': reactHooksPlugin,
+      react: reactPlugin,
+      'react-hooks': reactHooksPlugin,
+      'jsx-a11y': jsxA11y,
   },
   rules: {
     'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
@@ -37,5 +39,10 @@ export default {
     'react/no-array-index-key': 'warn',
     'react/jsx-boolean-value': ['error', 'never'],
     'react/jsx-pascal-case': 'error',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    ...jsxA11y.configs.recommended.rules,
   },
 };

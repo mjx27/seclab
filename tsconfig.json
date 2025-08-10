@@ -39,7 +39,9 @@
     "**/*.tsx",
     "next-env.d.ts",
     ".next/types/**/*.ts",
-    "eslint/config/imports.js"
+    "eslint/config/imports.js",
+    "postcss.config.mjs",
+    "tailwind.config.js"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "*.config.ts"]
 }

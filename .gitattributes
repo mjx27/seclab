@@ -1,0 +1,2 @@
+* text=auto eol=lf
+*.{ts,tsx,html,json,md} text eol=lf
