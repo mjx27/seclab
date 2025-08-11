@@ -5,17 +5,15 @@ import { useForm } from 'react-hook-form';
 import type { UserFormData } from '@/entities/User';
 import { userSchema } from '@/entities/User';
 import { Button } from '@/shared/ui/Button';
-import { Form } from '@/shared/ui/Form';
+import { createReactHookFormAdapter, Form } from '@/shared/ui/Form';
 import { FormInput } from '@/shared/ui/Input';
 
 import { UserFormInputs } from '../lib/constants';
 
 export const CreateUserForm = ({
   onSubmit,
-  onCancel,
 }: {
   onSubmit: (data: UserFormData) => void;
-  onCancel?: () => void;
 }) => {
   const form = useForm<UserFormData>({
     resolver: zodResolver(userSchema),
@@ -25,26 +23,35 @@ export const CreateUserForm = ({
       role: 'user',
       age: 18,
     },
+    mode: 'onChange',
   });
+
+  const adapter = createReactHookFormAdapter(form);
 
   const handleSubmit = (data: UserFormData) => {
     onSubmit(data);
-    form.reset();
+    adapter.resetForm();
   };
 
   return (
     <Form form={form} onSubmit={handleSubmit}>
       <div className="space-y-4">
         {UserFormInputs.map((input) => (
-          <FormInput {...input} key={input.name} />
+          <FormInput
+            {...input}
+            key={input.name}
+            {...adapter.getFieldProps(input.name)}
+          />
         ))}
         <div className="flex justify-end space-x-2">
-          {onCancel && (
-            <Button type="button" variant="bordered" onClick={onCancel}>
-              Cancel
-            </Button>
-          )}
-          <Button type="submit">Create</Button>
+          <Button
+            type="submit"
+            disabled={
+              !adapter.formState.isValid || adapter.formState.isSubmitting
+            }
+          >
+            Create
+          </Button>
         </div>
       </div>
     </Form>

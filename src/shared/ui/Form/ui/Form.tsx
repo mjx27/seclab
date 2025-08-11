@@ -1,10 +1,20 @@
-import type { UseFormReturn, FieldValues } from 'react-hook-form';
+'use client';
+import type { ReactNode } from 'react';
+import type {
+  UseFormReturn,
+  FieldValues,
+  SubmitHandler,
+} from 'react-hook-form';
 import { FormProvider } from 'react-hook-form';
+
+import { cn } from '@/shared/lib/utils';
+
+import { createReactHookFormAdapter } from '../lib/utils/form-adapter';
 
 type FormProps<T extends FieldValues> = {
   form: UseFormReturn<T>;
-  onSubmit: (data: T) => void;
-  children: React.ReactNode;
+  onSubmit: SubmitHandler<T>;
+  children: ReactNode;
   className?: string;
 };
 
@@ -14,16 +24,20 @@ export const Form = <T extends FieldValues>({
   children,
   className,
 }: FormProps<T>) => {
+  const adapter = createReactHookFormAdapter(form);
   return (
     <FormProvider {...form}>
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          form.handleSubmit(onSubmit)(e).catch(console.error);
-        }}
-        className={className}
+        onSubmit={adapter.handleSubmit(onSubmit)}
+        className={cn('space-y-4', className)}
+        noValidate
       >
-        {children}
+        <fieldset
+          disabled={adapter.formState.isSubmitting}
+          className="space-y-4"
+        >
+          {children}
+        </fieldset>
       </form>
     </FormProvider>
   );

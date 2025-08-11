@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'seclab',
-  description: 'TZ',
+  description: 'TTT',
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
