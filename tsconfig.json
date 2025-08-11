@@ -25,12 +25,7 @@
     "baseUrl": ".",
     "allowJs": true,
     "paths": {
-      "@/*": ["src/*"],
-      "@entities/*": ["src/entities/*"],
-      "@features/*": ["src/features/*"],
-      "@widgets/*": ["src/widgets/*"],
-      "@shared/*": ["./src/shared/*"],
-      "@models/*": ["./src/shared/models/*"]
+      "@/*": ["src/*"]
     },
     "types": ["node"]
   },
@@ -40,8 +35,9 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "eslint/config/imports.js",
-    "postcss.config.mjs",
-    "tailwind.config.js"
+    "tailwind.config.js",
+    "postcss.config.js",
+    "next.config.ts"
   ],
-  "exclude": ["node_modules", "*.config.ts"]
+  "exclude": ["node_modules"]
 }
