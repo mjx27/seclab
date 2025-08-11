@@ -13,12 +13,6 @@ const nextConfig: NextConfig = {
   webpack: (config: Configuration, { isServer }: { isServer: boolean }) => {
     const aliases: Record<string, string> = {
       '@': path.resolve(__dirname, 'src'),
-      '@entities': path.resolve(__dirname, 'src/entities'),
-      '@features': path.resolve(__dirname, 'src/features'),
-      '@store': path.resolve(__dirname, 'src/store'),
-      '@widgets': path.resolve(__dirname, 'src/widgets'),
-      '@shared': path.resolve(__dirname, 'src/shared'),
-      '@models': path.resolve(__dirname, 'src/shared/models'),
     };
 
     const newConfig: Configuration = {
